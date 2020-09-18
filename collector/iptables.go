@@ -28,12 +28,12 @@ func init() {
 func NewIptablesCollector(logger log.Logger) (Collector, error) {
 	subsystem := "iptables"
 	chainDownloadDesc := prometheus.NewDesc(
-		prometheus.BuildFQName(namespace, subsystem, "download_bytes"),
+		prometheus.BuildFQName(namespace, subsystem, "download_bytes_total"),
 		"Iptables download traffic in each chains.",
 		chainLabelNames, nil,
 	)
 	chainUploadDesc := prometheus.NewDesc(
-		prometheus.BuildFQName(namespace, subsystem, "upload_bytes"),
+		prometheus.BuildFQName(namespace, subsystem, "upload_bytes_total"),
 		"Iptables upload traffic in each chains.",
 		chainLabelNames, nil,
 	)
@@ -72,7 +72,8 @@ func (c *iptablesCollector) Update(ch chan<- prometheus.Metric) error {
 					c.chainDownloadDesc, prometheus.GaugeValue,
 					n, currentChain, downloadMatch[1],
 				)
-			} else if uploadMatch := uploadRe.FindStringSubmatch(line); len(uploadMatch) > 1 {
+			}
+			if uploadMatch := uploadRe.FindStringSubmatch(line); len(uploadMatch) > 1 {
 				ch <- prometheus.MustNewConstMetric(
 					c.chainDownloadDesc, prometheus.GaugeValue,
 					n, currentChain, uploadMatch[1],
