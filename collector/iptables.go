@@ -72,10 +72,9 @@ func (c *iptablesCollector) Update(ch chan<- prometheus.Metric) error {
 					c.chainDownloadDesc, prometheus.GaugeValue,
 					n, currentChain, downloadMatch[1],
 				)
-			}
-			if uploadMatch := uploadRe.FindStringSubmatch(line); len(uploadMatch) > 1 {
+			} else if uploadMatch := uploadRe.FindStringSubmatch(line); len(uploadMatch) > 1 {
 				ch <- prometheus.MustNewConstMetric(
-					c.chainDownloadDesc, prometheus.GaugeValue,
+					c.chainUploadDesc, prometheus.GaugeValue,
 					n, currentChain, uploadMatch[1],
 				)
 			}
