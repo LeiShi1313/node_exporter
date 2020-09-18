@@ -57,7 +57,7 @@ jobs:
 
     environment:
       DOCKER_TEST_IMAGE_NAME: quay.io/prometheus/golang-builder:1.14-base
-      REPO_PATH: github.com/prometheus/node_exporter
+      REPO_PATH: github.com/leishi1313/node_exporter
 
     steps:
     - checkout

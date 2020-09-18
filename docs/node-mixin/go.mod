@@ -1,4 +1,4 @@
-module github.com/prometheus/node_exporter/docs/node-mixin
+module github.com/leishi1313/node_exporter/docs/node-mixin
 
 go 1.15
 

@@ -1,4 +1,4 @@
-module github.com/prometheus/node_exporter
+module github.com/leishi1313/node_exporter
 
 require (
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
@@ -7,7 +7,6 @@ require (
 	github.com/ema/qdisc v0.0.0-20200603082823-62d0308e3e00
 	github.com/go-kit/kit v0.10.0
 	github.com/godbus/dbus v0.0.0-20190402143921-271e53dc4968
-	github.com/golang/protobuf v1.4.1 // indirect
 	github.com/hodgesds/perf-utils v0.0.8
 	github.com/jpillora/backoff v1.0.0 // indirect
 	github.com/lufia/iostat v1.1.0
@@ -30,9 +29,13 @@ require (
 	golang.org/x/sync v0.0.0-20200317015054-43a5402ce75a // indirect
 	golang.org/x/sys v0.0.0-20200602225109-6fdc65e7d980
 	golang.org/x/tools v0.0.0-20200513201620-d5fe73897c97 // indirect
+	google.golang.org/grpc v1.27.0
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	gopkg.in/yaml.v2 v2.3.0
 	honnef.co/go/tools v0.0.1-2020.1.3 // indirect
+	v2ray.com/core v4.19.1+incompatible
 )
+
+replace v2ray.com/core => github.com/v2ray/v2ray-core v1.24.5-0.20200610141238-f9935d0e93ea
 
 go 1.14

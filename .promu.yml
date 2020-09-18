@@ -3,7 +3,7 @@ go:
     # .promu-cgo.yml should also be updated.
     version: 1.14
 repository:
-    path: github.com/prometheus/node_exporter
+    path: github.com/leishi1313/node_exporter
 build:
     binaries:
         - name: node_exporter
@@ -31,3 +31,6 @@ crossbuild:
         - linux/ppc64
         - linux/ppc64le
         - linux/s390x
+        - windows/386
+        - windows/amd64
+

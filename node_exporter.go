@@ -28,8 +28,8 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/prometheus/common/version"
-	"github.com/prometheus/node_exporter/collector"
-	"github.com/prometheus/node_exporter/https"
+	"github.com/leishi1313/node_exporter/collector"
+	"github.com/leishi1313/node_exporter/https"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 
@@ -149,7 +149,7 @@ func main() {
 		disableExporterMetrics = kingpin.Flag(
 			"web.disable-exporter-metrics",
 			"Exclude metrics about the exporter itself (promhttp_*, process_*, go_*).",
-		).Bool()
+		).Default("false").Bool()
 		maxRequests = kingpin.Flag(
 			"web.max-requests",
 			"Maximum number of parallel scrape requests. Use 0 to disable.",
